@@ -1,51 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main>
+      <!-- Parte izquierda -->
+      <div class="left-layout">
+        <div class="left-background"></div>
+        <div class="card-positioning">
+          <picture class="front-card">
+            <img src="./images/bg-card-front.png" height="170" width="335" alt="card front" />
+            <span class="card-circle-filled"></span>
+            <span class="card-circle-unfilled"></span>
+            <span class="card-number">0000 0000 0000 0000</span>
+            <span class="card-name">Jane Appleseed</span>
+            <span class="card-date">00/00</span>
+          </picture>
+          <picture class="back-card">
+            <img src="./images/bg-card-back.png" height="170" width="335" alt="card back" />
+            <span class="card-cvc">000</span>
+          </picture>
+        </div>
+      </div>
+        <!-- <picture>
+          <source media="(min-width: 480px)" srcset="./images/bg-main-desktop.png" />
+          <img src="./images/bg-main-mobile.png" alt="background main" />
+        </picture> -->
+        
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
+      <!-- Parte derecha -->
+      <div class="right-layout">
+        <form class="form-placement form-layout" method="post">
+          <div class="label-input-layout">
+            <label for="cardholderName">CARD HOLDER NAME</label>
+            <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+          </div>
+          <div class="label-input-layout">
+            <label for="cardNumber">CARD NUMBER</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" class="input-style" />
+          </div>
+          <div class="form-last-section">
+            <div class="form-1-column">
+              <div class="column-span">
+                <label for="month">EXP. DATE (MM/YY)</label>
+                <label for="year"></label>
+              </div>
+              <input type="text" id="month" name="month" placeholder="MM" class="input-style" />
+              <input type="text" id="year" name="year" placeholder="YY" class="input-style" />
+            </div>
+            <div>
+              <div class="label-input-layout">
+              <label for="cvc">CVC</label>
+              <input type="text" id="cvc" class="input-style" name="cvc" placeholder="e.g. 123" maxlength="3" />
+            </div>
+            </div>
+          </div>
+          <button class="confirm-button" type="submit" value="confirm">Confirm</button>
+        </form>
+      </div>
+      <div>
+        <div class="attribution" style="display:none">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="#">Your Name Here</a>.
+        </div>
+      </div>
+      <!-- <div>
+        0000 0000 0000 0000
+        Jane Appleseed
+        00/00
+      
+        000
+      </div> -->
+      <!-- <form action="" method="POST">
+        <label for="cardholderName">Cardholder Name</label>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+        
 
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm
-
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        
+      </form> -->
+    
+      <!-- Completed state start -->
+      <div style="display:none">
+        Thank you!
+        We've added your card details
+        Continue
+      </div>
+    </main>
+  </body>
 </html>
