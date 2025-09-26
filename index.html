@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Frontend Mentor | Interactive card details form</title>
+    <script src="main.js" defer></script>
+    <title>FEM | Interactive card details form</title>
   </head>
   <body>
     <main>
@@ -18,15 +19,16 @@
         <div class="card-positioning">
           <picture class="front-card">
             <img src="./images/bg-card-front.png" height="170" width="335" alt="card front" />
-            <span class="card-circle-filled"></span>
-            <span class="card-circle-unfilled"></span>
-            <span class="card-number">0000 0000 0000 0000</span>
-            <span class="card-name">Jane Appleseed</span>
-            <span class="card-date">00/00</span>
+            <!-- <span class="card-circle-filled"></span>
+            <span class="card-circle-unfilled"></span> -->
+            <img src="./images/card-logo.svg" class="card-logo" alt="card logo">
+            <span id ="cardImgNumber" class="card-number"></span>
+            <span id="cardImgName" class="card-name"></span>
+            <span id="cardimgdate" class="card-date"></span>
           </picture>
           <picture class="back-card">
             <img src="./images/bg-card-back.png" height="170" width="335" alt="card back" />
-            <span class="card-cvc">000</span>
+            <span id="cardimgcvc" class="card-cvc"></span>
           </picture>
         </div>
       </div>
@@ -38,61 +40,62 @@
 
       <!-- Parte derecha -->
       <div class="right-layout">
-        <form class="form-placement form-layout" method="post">
+        <!-- Formulario -->
+        <form id="card-form" class="form-placement form-layout" autocomplete="off">
           <div class="label-input-layout">
             <label for="cardholderName">CARD HOLDER NAME</label>
             <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" />
-
+            <span id="cardholderNameError" class="error hide-error">Wrong format, text only</span>
           </div>
           <div class="label-input-layout">
             <label for="cardNumber">CARD NUMBER</label>
-            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" class="input-style" />
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" class="input-style" maxlength="19"/>
+            <span id="cardNumberError" class="error hide-error">Wrong format, number only</span>
           </div>
+
           <div class="form-last-section">
-            <div class="form-1-column">
+            <div class="date-column">
               <div class="column-span">
                 <label for="month">EXP. DATE (MM/YY)</label>
                 <label for="year"></label>
               </div>
-              <input type="text" id="month" name="month" placeholder="MM" class="input-style" />
-              <input type="text" id="year" name="year" placeholder="YY" class="input-style" />
+            </div>
+            <label class="cvcPlacement" for="cvc">CVC</label>
+          </div>
+          <div class="form-last-section">
+            <div>
+              <input type="text" id="month" name="month" placeholder="MM" class="input-style input-width-dates" maxlength="2" />
+              <span id="monthError" class="error hide-error">Allowed 1 to 12 </span>
             </div>
             <div>
-              <div class="label-input-layout">
-              <label for="cvc">CVC</label>
-              <input type="text" id="cvc" class="input-style" name="cvc" placeholder="e.g. 123" maxlength="3" />
+              <input type="text" id="year" name="year" placeholder="YY" class="input-style input-width-dates" maxlength="2" />
+              <span id="yearError" class="error hide-error">Can't be blanck</span>
             </div>
+            <div>
+              <input type="text" id="cvc" class="input-style input-width-cvc" name="cvc" placeholder="e.g. 123" maxlength="3" />
+              <span id="cvcError" class="error hide-error">Can't be blanck</span>
             </div>
           </div>
-          <button class="confirm-button" type="submit" value="confirm">Confirm</button>
+          <button class="action-button" type="button" value="confirm" onclick="submitForm()">Confirm</button>
         </form>
+        
+        <!-- Completed state -->
+        <div id="completed-state" class="hide-completed-state form-placement complete-state-layout">
+          <img src="images/icon-complete.svg" height="75" width="75" alt="Complete icon">
+          <h2>Thank you!</h2>
+          <p class="card-detail-thank-you">We've added your card details</p>
+          <button class="action-button" type="button" value="confirm">
+            Continue
+          </button>
+        </div>
       </div>
+
+      <!-- Atribution -->
       <div>
         <div class="attribution" style="display:none">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">Your Name Here</a>.
+          Coded by <a href="#">José Luis PB</a>.
         </div>
-      </div>
-      <!-- <div>
-        0000 0000 0000 0000
-        Jane Appleseed
-        00/00
-      
-        000
-      </div> -->
-      <!-- <form action="" method="POST">
-        <label for="cardholderName">Cardholder Name</label>
-
-        
-
-        
-      </form> -->
-    
-      <!-- Completed state start -->
-      <div style="display:none">
-        Thank you!
-        We've added your card details
-        Continue
       </div>
     </main>
   </body>
