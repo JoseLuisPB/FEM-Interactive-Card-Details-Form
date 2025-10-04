@@ -1,14 +1,18 @@
 * {
   box-sizing: border-box;
-
   --desktop-width: 1440px;
   --mobile-width: 375px;
   --active-input-border: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
   --error-red: hsl(0, 100%, 66%);
   --white: hsl(0, 0%, 100%);
   --light-grayish-violet: hsl(270, 3%, 87%);
+  --light-grayish-violet-darker: hsl(270, 3%, 50%);
   --dark-grayis-violet: hsl(279, 6%, 55%);
   --very-dark-violet: hsl(278, 68%, 11%);
+  --desktop-image-heigth: 170px;
+  --desktop-image-width: 355px;
+  --mobile-image-heigth: 150px;
+  --mobile-image-width: 275px;
 }
 
 body {
@@ -30,11 +34,26 @@ main {
   background-image: url("./images/bg-main-desktop.png");
   background-size: cover;
   height: 100vh;
+
+  @media (max-width: 480px){
+    background-image: none;
+    background-size: unset;
+    height: 35vh;
+  } 
 }
 
 .left-layout{
   display: grid;
   grid-template-columns: 3fr 1fr;
+
+  @media (max-width: 480px){
+    display: flex;
+    flex-direction: column;
+    background-image: url("./images/bg-main-mobile.png");
+    background-repeat: no-repeat;
+    width: var(--mobile-width);
+  } 
+  
 }
 
 .card-positioning {
@@ -52,36 +71,20 @@ main {
   margin-bottom: 275px;
 }
 
+.img-style{
+  height: var(--desktop-image-heigth);
+  width: var(--desktop-image-width);
+
+  @media (max-width: 480px){
+    height: var(--mobile-image-heigth);
+    width: var(--mobile-image-width);
+  } 
+}
+
 .back-card {
   position: absolute;
   margin-top: 275px;
 }
-
-/* .card-circle-filled{
-  background-color: var(--white);
-  height: 30px;
-  width: 30px;
-  aspect-ratio: 1;
-  border-radius: 2rem;
-  aspect-ratio: 1;
-  display: block;
-  position: absolute;
-  top: 25px;
-  left: 25px;
-} */
-
-/* .card-circle-unfilled{
-  border: 1px solid var(--white);
-  height: 15px;
-  width: 15px;
-  aspect-ratio: 1;
-  border-radius: 1rem;
-  aspect-ratio: 1;
-  display: block;
-  position: absolute;
-  top: 33px;
-  left: 70px;
-} */
 
 .card-logo{
   position: absolute;
@@ -97,6 +100,9 @@ main {
   bottom: 50px;
   font-size: 1.55rem;
   color: var(--white);
+  @media (max-width: 480px){
+    font-size: 1.25rem;
+  } 
 }
 
 .card-name{
@@ -122,6 +128,12 @@ main {
   bottom: 85px;
   font-size: 0.75rem;
   color: var(--white);
+
+  @media (max-width: 480px){
+    position: absolute;
+    right: 35px;
+    bottom: 75px;
+  } 
 }
 
 .right-layout{
@@ -129,6 +141,10 @@ main {
   flex-direction: column;
   align-items: center;
   grid-template-columns: 1fr minmax(400px, 1fr) 1fr;
+
+  @media (max-width: 480px){
+    display: flex;
+  } 
 }
 
 /* TODO poner nombre que también vaya para el state complete */
@@ -226,12 +242,8 @@ input:focus{
   display: none
 }
 
-.complete-state-layout{
-  
-}
-
 .card-detail-thank-you{
-  color: var(--light-grayish-violet);
+  color: var(--light-grayish-violet-darker);
   margin-top: 0;
   font-size: 14px;
 }
@@ -245,11 +257,86 @@ input:focus{
   color: hsl(228deg, 45%, 44%);
 }
 
+.hide-in-mobile{
+  @media (max-width: 480px){
+    display: none;
+  } 
+}
+
+.hide-in-desktop{
+  @media (min-width: 481px){
+      display: none;
+    } 
+}
+
 @media (max-width: 480px) {
   body {
-    width: 375px;
+    width: var(--mobile-width);
     overflow-y: scroll;
   }
+
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .left-layout-desktop{
+    display: none;
+  } */
+
+  .front-card{
+    top: 130px;
+    left: 25px;
+    margin-top: 0;
+    z-index: 1;
+  }
+
+  .back-card{
+    top: 0;
+    right: 25px;
+    margin-top: 25px;
+  }
+
+  .right-layout{
+    margin: 4rem 1.5rem 1rem 1.5rem;
+  }
+
+  .form-layout{
+    width: 100%
+  }
+
+  .input-style{
+    max-width: 325px;
+  }
+
+  .form-last-section{
+    display: grid;
+    grid-template-columns: 75px 75px 165px;
+    font-size: 14px;
+    gap: 0.5rem;
+  }
+
+  .date-column{
+    grid-template-columns: calc(78px - 0.2rem) calc(78px - 0.2rem);
+  }
+
+  .input-width-dates{
+    width: calc(65px - 0.2rem);
+  }
+
+  .input-width-cvc{
+    width: calc(155px - 0.2rem);
+  }
+
+  .action-button{
+    margin-top: 0.5rem;
+    padding: 1rem 0.5rem
+  }
+
+  .complete-state-layout{
+    width: 100%;
+  }
+
 }
 
 

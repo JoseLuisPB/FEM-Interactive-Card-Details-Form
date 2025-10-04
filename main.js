@@ -1,7 +1,7 @@
 //TODO => Formato del card number
-//TODO => Segunda pantalla
 //TODO => Caso mobile
 //TODO => Personalizar el texto de error
+//TODO => Añadir borde error al input
 //TODO => Refactorizar index
 //TODO => Refactorizar styles
 //Todo => Refactorizar main
@@ -134,7 +134,6 @@ function submitForm(){
   errorChecker.push(validateCvc());
 
   const isFormValid = errorChecker.every(error => error === false);
-
   if(isFormValid){
     completeForm();
   }

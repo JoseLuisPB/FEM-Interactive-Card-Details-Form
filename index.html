@@ -17,31 +17,24 @@
       <div class="left-layout">
         <div class="left-background"></div>
         <div class="card-positioning">
-          <picture class="front-card">
-            <img src="./images/bg-card-front.png" height="170" width="335" alt="card front" />
-            <!-- <span class="card-circle-filled"></span>
-            <span class="card-circle-unfilled"></span> -->
+          <div class="front-card">
+            <img class="img-style" src="./images/bg-card-front.png" alt="card front" />
             <img src="./images/card-logo.svg" class="card-logo" alt="card logo">
             <span id ="cardImgNumber" class="card-number"></span>
             <span id="cardImgName" class="card-name"></span>
             <span id="cardimgdate" class="card-date"></span>
-          </picture>
-          <picture class="back-card">
-            <img src="./images/bg-card-back.png" height="170" width="335" alt="card back" />
+          </div>
+          <div class="back-card">
+            <img class="img-style" src="./images/bg-card-back.png" alt="card back" />
             <span id="cardimgcvc" class="card-cvc"></span>
-          </picture>
+          </div>
         </div>
       </div>
-        <!-- <picture>
-          <source media="(min-width: 480px)" srcset="./images/bg-main-desktop.png" />
-          <img src="./images/bg-main-mobile.png" alt="background main" />
-        </picture> -->
-        
-
       <!-- Parte derecha -->
+       <!-- Código desktop -->
       <div class="right-layout">
         <!-- Formulario -->
-        <form id="card-form" class="form-placement form-layout" autocomplete="off">
+        <form id="card-form" class="form-placement form-layout" autocomplete="off">  
           <div class="label-input-layout">
             <label for="cardholderName">CARD HOLDER NAME</label>
             <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" />
