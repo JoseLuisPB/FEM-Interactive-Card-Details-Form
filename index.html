@@ -37,12 +37,12 @@
         <form id="card-form" class="form-placement form-layout" autocomplete="off">  
           <div class="label-input-layout">
             <label for="cardholderName">CARD HOLDER NAME</label>
-            <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" />
+            <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" required/>
             <span id="cardholderNameError" class="error hide-error">Wrong format, text only</span>
           </div>
           <div class="label-input-layout">
             <label for="cardNumber">CARD NUMBER</label>
-            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" class="input-style" maxlength="19"/>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g. 1234 5678 9123 0000" class="input-style" maxlength="19" required/>
             <span id="cardNumberError" class="error hide-error">Wrong format, number only</span>
           </div>
 
@@ -57,15 +57,15 @@
           </div>
           <div class="form-last-section">
             <div>
-              <input type="text" id="month" name="month" placeholder="MM" class="input-style input-width-dates" maxlength="2" />
+              <input type="text" id="month" name="month" placeholder="MM" class="input-style input-width-dates" maxlength="2" required/>
               <span id="monthError" class="error hide-error">Allowed 1 to 12 </span>
             </div>
             <div>
-              <input type="text" id="year" name="year" placeholder="YY" class="input-style input-width-dates" maxlength="2" />
+              <input type="text" id="year" name="year" placeholder="YY" class="input-style input-width-dates" maxlength="2" required/>
               <span id="yearError" class="error hide-error">Can't be blanck</span>
             </div>
             <div>
-              <input type="text" id="cvc" class="input-style input-width-cvc" name="cvc" placeholder="e.g. 123" maxlength="3" />
+              <input type="text" id="cvc" class="input-style input-width-cvc" name="cvc" placeholder="e.g. 123" maxlength="3" required/>
               <span id="cvcError" class="error hide-error">Can't be blanck</span>
             </div>
           </div>
@@ -81,13 +81,11 @@
             Continue
           </button>
         </div>
-      </div>
-
-      <!-- Atribution -->
-      <div>
-        <div class="attribution" style="display:none">
+        
+        <!-- Atribution -->
+        <div class="attribution">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">José Luis PB</a>.
+          Coded by <a href="https://github.com/JoseLuisPB?tab=repositories" target="_blank">José Luis PB</a>.
         </div>
       </div>
     </main>

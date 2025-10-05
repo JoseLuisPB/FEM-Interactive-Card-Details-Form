@@ -1,17 +1,9 @@
 //TODO => Formato del card number
-//TODO => Caso mobile
 //TODO => Personalizar el texto de error
-//TODO => Añadir borde error al input
 //TODO => Refactorizar index
 //TODO => Refactorizar styles
 //Todo => Refactorizar main
-/* 
-  Field cannot be left blank => todos
-  Wrong format, text only  => cardholder
-  Can't be blanck => month, year, cvc
-  Wrong format, number only => card number, month, year, cvc
-  Allowed 1 to 12  => month
-*/
+
 
 
 /* Card holder name */
@@ -31,7 +23,7 @@ function validateCardHolderName(){
     error = true;
   }
 
-  handleErrorState(error, cardholderNameError);
+  handleErrorState(error, cardholderNameError, cardHolderNameInput);
   return error;
 }
 
@@ -50,7 +42,7 @@ function validateCardNumber(){
   if(monthInput.value.length === 0 || inputHasALetter(cardNumberInput)){
     error = true;
   }
-  handleErrorState(error, cardNumberError);
+  handleErrorState(error, cardNumberError, cardNumberInput);
   return error;
 }
 
@@ -86,7 +78,7 @@ function validateMonth(){
 
   if(!isValidMonthDate(monthInput.value)) error = true;
 
-  handleErrorState(error, monthError);
+  handleErrorState(error, monthError, monthInput);
 
   return error;
 }
@@ -97,7 +89,7 @@ function validateYear(){
   if(yearInput.value.length === 0 || inputHasALetter(yearInput)){
     error = true;
   }
-  handleErrorState(error, yearError);
+  handleErrorState(error, yearError, yearInput);
 
   return error;
 }
@@ -118,7 +110,7 @@ function validateCvc(){
   if(cvcInput.value.length === 0 || inputHasALetter(cvcInput)){
     error = true;
   }
-  handleErrorState(error, cvcError);
+  handleErrorState(error, cvcError, cvcInput);
 
   return error;
 }
@@ -139,14 +131,16 @@ function submitForm(){
   }
 }
 
-function handleErrorState(error, htmlElement){
+function handleErrorState(error, htmlErrorElement, htmlInputElement){
   if(error){
-    htmlElement.classList.remove('hide-error');
-    htmlElement.classList.add('display-error');
+    htmlErrorElement.classList.remove('hide-error');
+    htmlErrorElement.classList.add('display-error');
+    htmlInputElement.classList.add('invalid-field');
     return;
   }
-  htmlElement.classList.remove('display-error');
-  htmlElement.classList.add('hide-error');
+  htmlErrorElement.classList.remove('display-error');
+  htmlErrorElement.classList.add('hide-error');
+  htmlInputElement.classList.remove('invalid-field');
 }
 
 function inputHasALetter(inputElement){

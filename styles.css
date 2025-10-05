@@ -2,7 +2,8 @@
   box-sizing: border-box;
   --desktop-width: 1440px;
   --mobile-width: 375px;
-  --active-input-border: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --input-border: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --active-input-border: hsl(249, 99%, 64%);
   --error-red: hsl(0, 100%, 66%);
   --white: hsl(0, 0%, 100%);
   --light-grayish-violet: hsl(270, 3%, 87%);
@@ -68,7 +69,7 @@ main {
 .front-card {
   margin-right: 75px;
   position: absolute;
-  margin-bottom: 275px;
+  margin-bottom: 200px;
 }
 
 .img-style{
@@ -83,7 +84,7 @@ main {
 
 .back-card {
   position: absolute;
-  margin-top: 275px;
+  margin-top: 200px;
 }
 
 .card-logo{
@@ -196,6 +197,10 @@ main {
   color: var(--very-dark-violet);
 }
 
+input:focus , input:focus-visible{
+  border: 1px solid var(--active-input-border);
+}
+
 .input-width-dates{
   width: calc(100px - 0.2rem);
 }
@@ -215,10 +220,6 @@ main {
 
 .hide-error{
   display: none;
-}
-
-input:focus{
-  border: 1px solid var(--active-input-border);
 }
 
 .action-button{
@@ -251,6 +252,14 @@ input:focus{
 .attribution {
   font-size: 11px;
   text-align: center;
+  grid-area: 1 / 2;
+  align-self: end;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 480px){
+    margin-top: 0.5rem;
+    align-self: unset;
+  } 
 }
 
 .attribution a {
@@ -267,6 +276,10 @@ input:focus{
   @media (min-width: 481px){
       display: none;
     } 
+}
+
+.invalid-field{
+  border: solid 2px var(--error-red);
 }
 
 @media (max-width: 480px) {
