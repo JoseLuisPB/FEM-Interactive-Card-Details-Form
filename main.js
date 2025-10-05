@@ -1,15 +1,13 @@
-//TODO => Formato del card number
-//TODO => Personalizar el texto de error
 //TODO => Refactorizar index
 //TODO => Refactorizar styles
 //Todo => Refactorizar main
-
 
 
 /* Card holder name */
 const cardHolderNameInput = document.querySelector('#cardholderName');
 const cardImgName = document.querySelector('#cardImgName');
 const cardholderNameError = document.querySelector('#cardholderNameError');
+cardImgName.innerHTML = "JANE APPLESEED";
 
 cardHolderNameInput.addEventListener('keyup', () => {
   cardImgName.innerHTML = cardHolderNameInput.value;
@@ -31,10 +29,23 @@ function validateCardHolderName(){
 const cardNumberInput = document.querySelector('#cardNumber');
 const cardImgNumber = document.querySelector('#cardImgNumber');
 const cardNumberError = document.querySelector('#cardNumberError');
+cardImgNumber.innerHTML = "0000 0000 0000 0000";
 
 cardNumberInput.addEventListener('keyup', () => {
-  cardImgNumber.innerHTML = cardNumberInput.value;
+  cardImgNumber.innerHTML = formatCardNumber(cardNumberInput.value);
 });
+
+function formatCardNumber(cardNumber){
+  const cardTotalNumbers = 16;
+  let cardFormatedNumber = cardNumber.replace(/\s/g,'').padEnd(cardTotalNumbers, '0');
+
+  return cardFormatedNumber = [
+    cardFormatedNumber.substring(0, 4),
+    cardFormatedNumber.substring(4, 8),
+    cardFormatedNumber.substring(8, 12),
+    cardFormatedNumber.substring(12, 16)
+  ].join(' ');
+}
 
 function validateCardNumber(){
   let error = false;
@@ -53,6 +64,8 @@ const monthInput = document.querySelector('#month');
 const yearInput = document.querySelector('#year');
 const monthError = document.querySelector('#monthError');
 const yearError = document.querySelector('#yearError');
+
+cardimgdate.innerHTML = "00/00";
 
 let month = '';
 let year = '';
@@ -100,6 +113,7 @@ function validateYear(){
 const cvcInput = document.querySelector('#cvc');
 const cardimgcvc = document.querySelector('#cardimgcvc');
 const cvcError = document.querySelector('#cvcError');
+cardimgcvc.innerHTML = "000"
 
 cvc.addEventListener('keyup', () => {
   cardimgcvc.innerHTML = cvc.value;
@@ -114,8 +128,6 @@ function validateCvc(){
 
   return error;
 }
-
-
 
 function submitForm(){
   const errorChecker = [];
