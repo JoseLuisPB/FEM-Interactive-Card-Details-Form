@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,28 +13,24 @@
   </head>
   <body>
     <main>
-      <!-- Parte izquierda -->
       <div class="left-layout">
         <div class="left-background"></div>
-        <div class="card-positioning">
-          <div class="front-card">
-            <img class="img-style" src="./images/bg-card-front.png" alt="card front" />
-            <img src="./images/card-logo.svg" class="card-logo" alt="card logo">
-            <span id ="cardImgNumber" class="card-number"></span>
-            <span id="cardImgName" class="card-name"></span>
-            <span id="cardimgdate" class="card-date"></span>
+        <div class="credit-card-positioning">
+          <div class="credit-card-front-position">
+            <img class="credit-card-img" src="./images/bg-card-front.png" alt="credit card front" />
+            <img src="./images/card-logo.svg" class="credit-card-logo" alt="credit card logo">
+            <span id ="cardImgNumber" class="credit-card-number"></span>
+            <span id="cardImgName" class="credit-card-name"></span>
+            <span id="cardimgdate" class="credit-card-date"></span>
           </div>
-          <div class="back-card">
-            <img class="img-style" src="./images/bg-card-back.png" alt="card back" />
-            <span id="cardimgcvc" class="card-cvc"></span>
+          <div class="credit-card-back-position">
+            <img class="credit-card-img" src="./images/bg-card-back.png" alt="credit card back" />
+            <span id="cardimgcvc" class="credit-card-cvc"></span>
           </div>
         </div>
       </div>
-      <!-- Parte derecha -->
-       <!-- Código desktop -->
       <div class="right-layout">
-        <!-- Formulario -->
-        <form id="card-form" class="form-placement form-layout" autocomplete="off">  
+        <form id="card-form" class="right-layout-placement form-layout" autocomplete="off">  
           <div class="label-input-layout">
             <label for="cardholderName">CARD HOLDER NAME</label>
             <input type="text" id="cardholderName" name="cardholderName" placeholder="e.g. Jane Appleseed" class="input-style" required/>
@@ -46,7 +42,7 @@
             <span id="cardNumberError" class="error hide-error">Wrong format, number only</span>
           </div>
 
-          <div class="form-last-section">
+          <div class="form-expiration-date-section">
             <div class="date-column">
               <div class="column-span">
                 <label for="month">EXP. DATE (MM/YY)</label>
@@ -55,7 +51,7 @@
             </div>
             <label class="cvcPlacement" for="cvc">CVC</label>
           </div>
-          <div class="form-last-section">
+          <div class="form-expiration-date-section">
             <div>
               <input type="text" id="month" name="month" placeholder="MM" class="input-style input-width-dates" maxlength="2" required/>
               <span id="monthError" class="error hide-error">Allowed 1 to 12 </span>
@@ -73,7 +69,7 @@
         </form>
         
         <!-- Completed state -->
-        <div id="completed-state" class="hide-completed-state form-placement complete-state-layout">
+        <div id="completed-state" class="hide-completed-state right-layout-placement complete-state-layout">
           <img src="images/icon-complete.svg" height="75" width="75" alt="Complete icon">
           <h2>Thank you!</h2>
           <p class="card-detail-thank-you">We've added your card details</p>
@@ -84,8 +80,8 @@
         
         <!-- Atribution -->
         <div class="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="https://github.com/JoseLuisPB?tab=repositories" target="_blank">José Luis PB</a>.
+          Challenge by <a href="https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://github.com/JoseLuisPB/FEM-Interactive-Card-Details-Form" target="_blank">José Luis PB</a>.
         </div>
       </div>
     </main>

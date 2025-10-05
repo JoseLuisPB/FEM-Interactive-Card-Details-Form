@@ -23,23 +23,20 @@ body {
   margin: 0;
   overflow: hidden;
   color: var(--very-dark-violet);
+
+  @media (max-width: 480px){
+    width: var(--mobile-width);
+    overflow-y: scroll;
+  } 
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.left-background {
-  display: flex;
-  background-image: url("./images/bg-main-desktop.png");
-  background-size: cover;
-  height: 100vh;
 
   @media (max-width: 480px){
-    background-image: none;
-    background-size: unset;
-    height: 35vh;
+    display: flex;
+    flex-direction: column;
   } 
 }
 
@@ -57,7 +54,20 @@ main {
   
 }
 
-.card-positioning {
+.left-background {
+  display: flex;
+  background-image: url("./images/bg-main-desktop.png");
+  background-size: cover;
+  height: 100vh;
+
+  @media (max-width: 480px){
+    background-image: none;
+    background-size: unset;
+    height: 35vh;
+  } 
+}
+
+.credit-card-positioning {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -65,14 +75,31 @@ main {
   flex: 1;
 }
 
-
-.front-card {
+.credit-card-front-position {
   margin-right: 75px;
   position: absolute;
   margin-bottom: 200px;
+
+  @media (max-width: 480px) {
+    top: 130px;
+    left: 25px;
+    margin-top: 0;
+    z-index: 1;
+  }
 }
 
-.img-style{
+.credit-card-back-position {
+  position: absolute;
+  margin-top: 200px;
+
+  @media (max-width: 480px) {
+    top: 0;
+    right: 25px;
+    margin-top: 25px;
+  }
+}
+
+.credit-card-img{
   height: var(--desktop-image-heigth);
   width: var(--desktop-image-width);
 
@@ -82,12 +109,7 @@ main {
   } 
 }
 
-.back-card {
-  position: absolute;
-  margin-top: 200px;
-}
-
-.card-logo{
+.credit-card-logo{
   position: absolute;
   position: absolute;
   top: 15px;
@@ -95,7 +117,7 @@ main {
   height: 35px;
 }
 
-.card-number{
+.credit-card-number{
   position: absolute;
   left: 25px;
   bottom: 50px;
@@ -106,7 +128,7 @@ main {
   } 
 }
 
-.card-name{
+.credit-card-name{
   position: absolute;
   left: 25px;
   bottom: 20px;
@@ -115,7 +137,7 @@ main {
   text-transform: uppercase;
 }
 
-.card-date{
+.credit-card-date{
   position: absolute;
   right: 25px;
   bottom: 20px;
@@ -123,7 +145,7 @@ main {
   color: var(--white);
 }
 
-.card-cvc{
+.credit-card-cvc{
   position: absolute;
   right: 45px;
   bottom: 85px;
@@ -145,11 +167,11 @@ main {
 
   @media (max-width: 480px){
     display: flex;
+    margin: 4rem 1.5rem 1rem 1.5rem;
   } 
 }
 
-/* TODO poner nombre que también vaya para el state complete */
-.form-placement{
+.right-layout-placement{
   grid-area: 1/2;
 }
 
@@ -157,35 +179,16 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
 
-.hide-form{
-  display: none;
+  @media (max-width: 480px) {
+    width: 100%
+  }
 }
 
 .label-input-layout{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.form-last-section{
-  display: grid;
-  grid-template-columns: 100px 100px 200px;
-}
-
-.date-column{
-  display: grid;
-  grid-template-columns: calc(100px - 0.2rem) calc(100px - 0.2rem);
-  gap: 0.4rem;
-}
-
-.cvcPlacement{
-  grid-area: 1/3;
-}
-
-.column-span{
-  grid-column: span 2;
 }
 
 .input-style{
@@ -195,18 +198,18 @@ main {
   padding: 0 1rem;
   font-size: 18px;
   color: var(--very-dark-violet);
+
+  @media (max-width: 480px) {
+    max-width: 325px;
+  }
 }
 
 input:focus , input:focus-visible{
   border: 1px solid var(--active-input-border);
 }
 
-.input-width-dates{
-  width: calc(100px - 0.2rem);
-}
-
-.input-width-cvc{
-  width: calc(200px - 0.2rem);
+.invalid-field{
+  border: solid 2px var(--error-red);
 }
 
 .error{
@@ -214,12 +217,50 @@ input:focus , input:focus-visible{
   color: var(--error-red);
 }
 
-.display-error{
-  display: block;
+.form-expiration-date-section{
+  display: grid;
+  grid-template-columns: 100px 100px 200px;
+
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-columns: 75px 75px 165px;
+    font-size: 14px;
+    gap: 0.5rem;
+  }
 }
 
-.hide-error{
-  display: none;
+.date-column{
+  display: grid;
+  grid-template-columns: calc(100px - 0.2rem) calc(100px - 0.2rem);
+  gap: 0.4rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: calc(78px - 0.2rem) calc(78px - 0.2rem);
+  }
+}
+
+.column-span{
+  grid-column: span 2;
+}
+
+.cvcPlacement{
+  grid-area: 1/3;
+}
+
+.input-width-dates{
+  width: calc(100px - 0.2rem);
+
+  @media (max-width: 480px) {
+    width: calc(65px - 0.2rem);
+  }
+}
+
+.input-width-cvc{
+  width: calc(200px - 0.2rem);
+
+  @media (max-width: 480px) {
+    width: calc(155px - 0.2rem);
+  }
 }
 
 .action-button{
@@ -231,16 +272,17 @@ input:focus , input:focus-visible{
   border: 1px solid var(--very-dark-violet);
   cursor: pointer;
   width: 100%;
+
+  @media (max-width: 480px) {
+    margin-top: 0.5rem;
+    padding: 1rem 0.5rem
+  }
 }
 
-.display-completed-state{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hide-completed-state{
-  display: none
+.complete-state-layout{
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .card-detail-thank-you{
@@ -266,6 +308,24 @@ input:focus , input:focus-visible{
   color: hsl(228deg, 45%, 44%);
 }
 
+.display-error{
+  display: block;
+}
+
+.display-completed-state{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hide-error{
+  display: none;
+}
+
+.hide-form{
+  display: none;
+}
+
 .hide-in-mobile{
   @media (max-width: 480px){
     display: none;
@@ -278,78 +338,6 @@ input:focus , input:focus-visible{
     } 
 }
 
-.invalid-field{
-  border: solid 2px var(--error-red);
+.hide-completed-state{
+  display: none
 }
-
-@media (max-width: 480px) {
-  body {
-    width: var(--mobile-width);
-    overflow-y: scroll;
-  }
-
-  main{
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* .left-layout-desktop{
-    display: none;
-  } */
-
-  .front-card{
-    top: 130px;
-    left: 25px;
-    margin-top: 0;
-    z-index: 1;
-  }
-
-  .back-card{
-    top: 0;
-    right: 25px;
-    margin-top: 25px;
-  }
-
-  .right-layout{
-    margin: 4rem 1.5rem 1rem 1.5rem;
-  }
-
-  .form-layout{
-    width: 100%
-  }
-
-  .input-style{
-    max-width: 325px;
-  }
-
-  .form-last-section{
-    display: grid;
-    grid-template-columns: 75px 75px 165px;
-    font-size: 14px;
-    gap: 0.5rem;
-  }
-
-  .date-column{
-    grid-template-columns: calc(78px - 0.2rem) calc(78px - 0.2rem);
-  }
-
-  .input-width-dates{
-    width: calc(65px - 0.2rem);
-  }
-
-  .input-width-cvc{
-    width: calc(155px - 0.2rem);
-  }
-
-  .action-button{
-    margin-top: 0.5rem;
-    padding: 1rem 0.5rem
-  }
-
-  .complete-state-layout{
-    width: 100%;
-  }
-
-}
-
-
