@@ -61,6 +61,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Vanilla javascript
 
 ### What I learned
 
